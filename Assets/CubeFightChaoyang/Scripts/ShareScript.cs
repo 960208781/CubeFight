@@ -4,7 +4,7 @@ using cn.sharesdk.unity3d;
 using UnityEngine.UI;
 
 public class ShareScript : MonoBehaviour {
-	
+
 	public ShareSDK ssdk;
 	private string objName;
 	[SerializeField]
@@ -57,4 +57,3 @@ public class ShareScript : MonoBehaviour {
 		ssdk.ShowShareContentEditor (PlatformType.QQ , content);
 	}
 }
-
