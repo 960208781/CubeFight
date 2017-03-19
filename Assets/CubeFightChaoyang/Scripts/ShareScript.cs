@@ -42,14 +42,15 @@ public class ShareScript : MonoBehaviour {
 		StartCoroutine (ScreenshotTime(2));
 		MessageView.text = "截屏中···";
 		MessageView.text = "截屏完成";
+		DestroyObject (MessageView , 2f);
 	}
 
 	private IEnumerator ScreenshotTime(float a){
 		yield return new WaitForSeconds (a);
-		string imagePath = Application.persistentDataPath + "/Screenshot.png";
+		string imagePath = Application.persistentDataPath + "/ScreenShot.png";
 
 		ShareContent content = new ShareContent ();
-		content.SetText ("分享测试-朝阳");
+		content.SetText ("朝阳-分享测试");
 		content.SetImagePath (imagePath);
 //		content.SetImagePath ("http://www.ceeger.com/forum/attachment/1703/thread/14_140593_046c4f378b99d74.png");
 		content.SetTitle ("测试");

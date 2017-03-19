@@ -235,10 +235,10 @@ public class PlayerMove : MonoBehaviour
 			aSource.clip = landSound;
 			aSource.Play ();
 		}
-		//if we press jump in the air, save the time
 
+		//if we press jump in the air, save the time
 //		if (Application.platform.Equals(RuntimePlatform.WindowsEditor)) {
-			isJump = Input.GetAxis ("Jump");
+//			isJump = Input.GetAxis ("Jump");
 //		}
 //			Debug.Log("是否跳跃："+isJump);
 //			isJump = Input.touchCount;
