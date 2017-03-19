@@ -50,10 +50,11 @@ public class ShareScript : MonoBehaviour {
 
 		ShareContent content = new ShareContent ();
 		content.SetText ("分享测试-朝阳");
-		content.SetImagePath ("http://www.ceeger.com/forum/attachment/1703/thread/14_140593_046c4f378b99d74.png");
+		content.SetImagePath (imagePath);
+//		content.SetImagePath ("http://www.ceeger.com/forum/attachment/1703/thread/14_140593_046c4f378b99d74.png");
 		content.SetTitle ("测试");
 		content.SetShareType (ContentType.Image);
 		ssdk.ShowPlatformList (null , content , 100 , 100);
-		ssdk.ShowShareContentEditor (PlatformType.QQ , content);
+//		ssdk.ShowShareContentEditor (PlatformType.QQ , content);
 	}
 }

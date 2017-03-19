@@ -59,6 +59,8 @@ public class Joystick : MonoBehaviour, IDragHandler, IEndDragHandler{
 		transform.position = orignal.position;
 		Debug.Log ("结束拖拽");
 		direction = Vector2.zero;
+		h = 0;
+		v = 0;
 	}
 
 	void Update(){

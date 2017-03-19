@@ -1,14 +1,8 @@
-/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Assembly-CSharp.dll.mdb
-/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Assembly-CSharp.dll
-/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/obj/Debug/Assembly-CSharp.dll
-/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/obj/Debug/Assembly-CSharp.dll.mdb
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/UnityEngine.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/UnityEditor.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/UnityEngine.UI.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/UnityEngine.Networking.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/UnityEngine.Analytics.dll
-/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
-/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Mono.Cecil.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Unity.SerializationLogic.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Unity.DataContract.dll
@@ -18,3 +12,7 @@
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/obj/Debug/Assembly-CSharp-firstpass.dll
+/Users/lanou3g/Desktop/CubeFightGithub/CubeFight/obj/Debug/Assembly-CSharp-firstpass.dll.mdb

@@ -114,13 +114,13 @@ public class PlayerMove : MonoBehaviour
 
 		//get movement input, set direction to move in
 		if (ctrlWay) {
-//			if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer) {
+			if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer) {
 				h = Input.GetAxis ("Horizontal");
 				v = Input.GetAxis ("Vertical");
-//			}else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
-//				h = Input.acceleration.x * 4;
-//				v = Input.acceleration.y * 4;
-//			}
+			}else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
+				h = Input.acceleration.x * 4;
+				v = Input.acceleration.y * 4;
+			}
 		} else {
 				h = Joystick.h;
 				v = Joystick.v;
@@ -240,7 +240,7 @@ public class PlayerMove : MonoBehaviour
 //		if (Application.platform.Equals(RuntimePlatform.WindowsEditor)) {
 			isJump = Input.GetAxis ("Jump");
 //		}
-			Debug.Log("是否跳跃："+isJump);
+//			Debug.Log("是否跳跃："+isJump);
 //			isJump = Input.touchCount;
 
 		//////////////////////////////////////跳跃脚本////////////////////////////////////
