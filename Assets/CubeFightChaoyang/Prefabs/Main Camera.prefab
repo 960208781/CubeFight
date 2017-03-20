@@ -47,8 +47,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -0.01797339, y: 0.98062164, z: -0.19337589, w: 0.025768213}
-  m_LocalPosition: {x: 31.484922, y: 8.989143, z: -105.89093}
+  m_LocalRotation: {x: 0.3170716, y: 0.37203404, z: -0.06352676, w: 0.8700694}
+  m_LocalPosition: {x: 36.85151, y: 9.463648, z: 1.6058207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -86,7 +86,7 @@ Camera:
   far clip plane: 1000
   field of view: 70
   orthographic: 0
-  orthographic size: 100
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -113,7 +113,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: 81e78f0a9e71c3f43970efa12bcb02f9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
@@ -140,7 +140,7 @@ Skybox:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_CustomSkybox: {fileID: 2100000, guid: da976b1a4f7ebb949b0f71341e4f1821, type: 2}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -182,15 +182,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  targetOffset: {x: 0, y: 3.5, z: -7}
+  targetOffset: {x: 0, y: 2, z: -12}
   lockRotation: 0
-  followSpeed: 6
-  inputRotationSpeed: 160
+  followSpeed: 10
+  inputRotationSpeed: 0
   mouseFreelook: 0
   rotateDamping: 5
   waterFilter: {fileID: 100002}
-  avoidClippingTags:
-  - Untagged
+  avoidClippingTags: []
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

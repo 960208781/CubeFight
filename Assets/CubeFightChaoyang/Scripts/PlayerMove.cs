@@ -13,34 +13,34 @@ using System;
 public class PlayerMove : MonoBehaviour 
 {
 	//控制
-	public bool sidescroller;										//if true, won't apply vertical input
-	public Transform mainCam, floorChecks;			//外部传入主相机和主角身体监测点
+	public bool sidescroller;									//if true, won't apply vertical input
+	public Transform mainCam, floorChecks;						//外部传入主相机和主角身体监测点
 	public Animator animator;									//主角的动画控制器
-	public AudioClip jumpSound;							//play when jumping
-	public AudioClip landSound;								//play when landing on ground
-	public static bool ctrlWay = true;						//是否重力感应控制
+	public AudioClip jumpSound;									//跳跃音
+	public AudioClip landSound;									//落地音效
+	public static bool ctrlWay = true;							//是否重力感应控制
 	public static float isJump = 0f;							//外部传入控制跳跃(0为不跳，值越大力越大)
 
 	//移动
-	public float accel = 70f;					//acceleration/deceleration in air or on the ground
+	public float accel = 70f;									//运动时状态的减速度值
 	public float airAccel = 18f;			
 	public float decel = 7.6f;
 	public float airDecel = 1.1f;
 	[Range(0f, 5f)]
-	public float rotateSpeed = 0.7f, airRotateSpeed = 0.4f;	//how fast to rotate on the ground, how fast to rotate in the air
-	public float maxSpeed = 9;								//maximum speed of movement in X/Z axis
-	public float slopeLimit = 40, slideAmount = 35;			//maximum angle of slopes you can walk on, how fast to slide down slopes you can't
-	public float movingPlatformFriction = 7.7f;				//you'll need to tweak this to get the player to stay on moving platforms properly
+	public float rotateSpeed = 0.7f, airRotateSpeed = 0.4f;		//空中或者地面的快速旋转量
+	public float maxSpeed = 9;									//X/Z 轴的最大速度
+	public float slopeLimit = 40, slideAmount = 35;				//最大可以走的斜坡
+	public float movingPlatformFriction = 7.7f;					//在移动的方块上玩家受到的摩擦力
 	private float h , v;
 
-	//jumping
-	public Vector3 jumpForce =  new Vector3(0, 13, 0);		//normal jump force
-	public Vector3 secondJumpForce = new Vector3(0, 13, 0); //the force of a 2nd consecutive jump
-	public Vector3 thirdJumpForce = new Vector3(0, 13, 0);	//the force of a 3rd consecutive jump
-	public float jumpDelay = 0.1f;							//how fast you need to jump after hitting the ground, to do the next type of jump
-	public float jumpLeniancy = 0.17f;						//how early before hitting the ground you can press jump, and still have it work
+	//跳跃
+	public Vector3 jumpForce =  new Vector3(0, 13, 0);			//标准跳跃的力
+	public Vector3 secondJumpForce = new Vector3(0, 13, 0); 	//连跳力
+	public Vector3 thirdJumpForce = new Vector3(0, 13, 0);		//三连跳
+	public float jumpDelay = 0.1f;								//跳跃的间隔时间
+	public float jumpLeniancy = 0.17f;							//how early before hitting the ground you can press jump, and still have it work
 	[HideInInspector]
-	public int onEnemyBounce;					
+	public int onEnemyBounce;									//敌人的弹跳力
 	
 	private int onJump;
 	private bool grounded;
@@ -98,32 +98,35 @@ public class PlayerMove : MonoBehaviour
 	//主角的状态，接收输入值
 	void Update()
 	{	
-		//stops rigidbody "sleeping" if we don't move, which would stop collision detection
+		//唤醒刚体组件
 		rigid.WakeUp();
-		//handle jumping
+		//手势跳跃
 		JumpCalculations ();
-		//adjust movement values if we're in the air or on the ground
+		//在空中或者地面的时候调整相对的运动值
 		curAccel = (grounded) ? accel : airAccel;
 		curDecel = (grounded) ? decel : airDecel;
 		curRotateSpeed = (grounded) ? rotateSpeed : airRotateSpeed;
 				
-		//get movement axis relative to camera
+		//获得相对于相机的运动轴
 		screenMovementSpace = Quaternion.Euler (0, mainCam.eulerAngles.y, 0);
 		screenMovementForward = screenMovementSpace * Vector3.forward;
 		screenMovementRight = screenMovementSpace * Vector3.right;
 
-		//get movement input, set direction to move in
+		//人物移动方式判断
 		if (ctrlWay) {
-			if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer) {
+			if (Application.platform.Equals (RuntimePlatform.WindowsEditor) || Application.platform.Equals (RuntimePlatform.WindowsPlayer)) {
 				h = Input.GetAxis ("Horizontal");
 				v = Input.GetAxis ("Vertical");
-			}else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
+				print ("INput输出");
+			}else if (Application.platform.Equals (RuntimePlatform.Android) || Application.platform.Equals (RuntimePlatform.IPhonePlayer)) {
 				h = Input.acceleration.x * 4;
 				v = Input.acceleration.y * 4;
+				print ("zhongliganying ");
 			}
 		} else {
 				h = Joystick.h;
 				v = Joystick.v;
+			print ("anniuyaogan");
 		}
 
 		//only apply vertical input to movemement, if player is not sidescroller
@@ -222,13 +225,15 @@ public class PlayerMove : MonoBehaviour
 		return false;
 	}
 
-	//jumping
+	/// <summary>
+	/// 跳跃的运算
+	/// </summary>
 	private void JumpCalculations()
 	{
 		//keep how long we have been on the ground
 		groundedCount = (grounded) ? groundedCount += Time.deltaTime : 0f;
 		
-		//play landing sound
+		//落地声音
 		if(groundedCount < 0.25 && groundedCount != 0 && !GetComponent<AudioSource>().isPlaying && landSound && GetComponent<Rigidbody>().velocity.y < 1)
 		{
 			aSource.volume = Mathf.Abs(GetComponent<Rigidbody>().velocity.y)/40;
@@ -236,14 +241,16 @@ public class PlayerMove : MonoBehaviour
 			aSource.Play ();
 		}
 
-		//if we press jump in the air, save the time
+		//如在空中按下了跳跃则记录一下时间
+
+		//跳跃的值
 //		if (Application.platform.Equals(RuntimePlatform.WindowsEditor)) {
 //			isJump = Input.GetAxis ("Jump");
 //		}
 //			Debug.Log("是否跳跃："+isJump);
 //			isJump = Input.touchCount;
 
-		//////////////////////////////////////跳跃脚本////////////////////////////////////
+		//////////////////////////////////////跳跃脚本//////////////////////////////////////////////////////	
 		if (isJump > 0f && !grounded)
 			airPressTime = Time.time;
 		
@@ -266,7 +273,7 @@ public class PlayerMove : MonoBehaviour
 		}
 	}
 	
-	//push player at jump force
+	//施加到主角身上的推力
 	public void Jump(Vector3 jumpVelocity)
 	{
 		if(jumpSound)

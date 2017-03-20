@@ -47,6 +47,10 @@ public class Joystick : MonoBehaviour, IDragHandler, IEndDragHandler{
 			}
 			Debug.Log (h);
 			Debug.Log (v);
+			if (Vector3.Distance (endPoint , startPoint) < 0.2f) {
+				h = 0;
+				v = 0;
+			}
 		}
 		transform.position = endPoint;
 	}
@@ -59,8 +63,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IEndDragHandler{
 		transform.position = orignal.position;
 		Debug.Log ("结束拖拽");
 		direction = Vector2.zero;
-		h = 0;
-		v = 0;
+
 	}
 
 	void Update(){
