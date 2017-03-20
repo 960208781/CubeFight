@@ -45,12 +45,6 @@ public class Joystick : MonoBehaviour, IDragHandler, IEndDragHandler{
 			if (-direction.y > Mathf.Abs(direction.x)) {
 				v = -1;
 			}
-			Debug.Log (h);
-			Debug.Log (v);
-			if (Vector3.Distance (endPoint , startPoint) < 0.2f) {
-				h = 0;
-				v = 0;
-			}
 		}
 		transform.position = endPoint;
 	}
@@ -63,25 +57,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IEndDragHandler{
 		transform.position = orignal.position;
 		Debug.Log ("结束拖拽");
 		direction = Vector2.zero;
-
+		h = 0;
+		v = 0;
 	}
-
-	void Update(){
-		MoveCube ();
-	}
-
-	//移动小球的方法
-	void MoveCube(){
-		//将二维向量x，y 转换为 x，z方向的向量
-		//		Vector2 cubeDir = 
-		//			new Vector2 (direction.x, 0 , direction.y);
-		//
-		//		cube.Translate (
-		//			cubeDir.normalized * Time.deltaTime * 2f);
-
-		if (direction != Vector2.zero) {
-		}
-	}
-
-		//
 }

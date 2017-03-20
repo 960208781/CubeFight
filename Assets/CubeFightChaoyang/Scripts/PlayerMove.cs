@@ -117,16 +117,13 @@ public class PlayerMove : MonoBehaviour
 			if (Application.platform.Equals (RuntimePlatform.WindowsEditor) || Application.platform.Equals (RuntimePlatform.WindowsPlayer)) {
 				h = Input.GetAxis ("Horizontal");
 				v = Input.GetAxis ("Vertical");
-				print ("INput输出");
 			}else if (Application.platform.Equals (RuntimePlatform.Android) || Application.platform.Equals (RuntimePlatform.IPhonePlayer)) {
 				h = Input.acceleration.x * 4;
 				v = Input.acceleration.y * 4;
-				print ("zhongliganying ");
 			}
 		} else {
 				h = Joystick.h;
 				v = Joystick.v;
-			print ("anniuyaogan");
 		}
 
 		//only apply vertical input to movemement, if player is not sidescroller

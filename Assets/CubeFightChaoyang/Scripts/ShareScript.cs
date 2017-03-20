@@ -39,7 +39,7 @@ public class ShareScript : MonoBehaviour {
 	public void btnScreenCapOnClick(){
 		MessageView.text = "开始截屏";
 		Application.CaptureScreenshot ("ScreenShot.png");
-		StartCoroutine (ScreenshotTime(2));
+		StartCoroutine (ScreenshotTime(0.01f));
 		MessageView.text = "截屏中···";
 		MessageView.text = "截屏完成";
 		DestroyObject (MessageView , 2f);

@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/CubeFightChaoyang/Materials/Other/Scenes/StartScene.unity
+    path: Assets/CubeFightChaoyang/Scenes/StartScene.unity
   - enabled: 1
-    path: Assets/CubeFightChaoyang/Materials/Other/Scenes/2D Demo Scene.unity
+    path: Assets/CubeFightChaoyang/Scenes/2D Demo Scene.unity
   - enabled: 1
-    path: Assets/CubeFightChaoyang/Materials/Other/Scenes/3D Demo Scene.unity
+    path: Assets/CubeFightChaoyang/Scenes/3D Demo Scene.unity

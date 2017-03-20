@@ -8,6 +8,7 @@ using System.Reflection;
 
 namespace cn.sharesdk.unity3d
 {
+	
 	/// <summary>
 	/// ShareSDK.
 	/// </summary>
