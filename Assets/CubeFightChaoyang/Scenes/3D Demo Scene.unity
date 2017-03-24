@@ -5182,6 +5182,10 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 2064384460}
+    - target: {fileID: 11400000, guid: ac79453cdfd497e4fb70bd15a2766204, type: 2}
+      propertyPath: lockRotation
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436470, guid: ac79453cdfd497e4fb70bd15a2766204, type: 2}
     - {fileID: 11454190, guid: ac79453cdfd497e4fb70bd15a2766204, type: 2}
