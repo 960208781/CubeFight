@@ -6,12 +6,12 @@ using System.Collections;
 [RequireComponent(typeof(DealDamage))]
 public class EnemyAI : MonoBehaviour 
 {
-	public float acceleration = 35f;					//acceleration of enemy movement
-	public float deceleration = 8f;						//deceleration of enemy movement
-	public float rotateSpeed = 0.7f;					//how fast enemy can rotate
-	public float speedLimit = 10f;						//how fast enemy can move
-	public Vector3 bounceForce = new Vector3(0, 13, 0);	//force to apply to player when player jumps on enemies head
-	public AudioClip bounceSound;						//sound when you bounce on enemies
+	public float acceleration = 35f;					//敌人移动的加速度
+	public float deceleration = 8f;						//敌人移动的减速度
+	public float rotateSpeed = 0.7f;					//敌人旋转速度
+	public float speedLimit = 10f;						//敌人移动速度极限值
+	public Vector3 bounceForce = new Vector3(0, 13, 0);	//当敌人受攻击的时候施加在主角身上的力
+	public AudioClip bounceSound;						//调到敌人身上的时候音效
 	public float pushForce = 10f;						//how far away to push the player when they are attacked by the enemy
 	public float pushHeight = 7f;						//how high to push the player when they are attacked by the enemy
 	public int attackDmg = 1;							//how much damage to deal to the player when theyre attacked by this enem

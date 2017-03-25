@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
 	//设置对象
 	void Awake()
 	{
-		followTarget = new GameObject().transform;	//自动创建新的游戏对象作为相机的替代
+		followTarget = new GameObject().transform;				//自动创建新的游戏对象作为相机的替代
 		followTarget.name = "Camera Target";
 		if(waterFilter)
 			waterFilter.GetComponent<Renderer>().enabled = false;
@@ -42,15 +42,15 @@ public class CameraFollow : MonoBehaviour
 		else
 			transform.LookAt(target.position);
 	}
-
-	//toggle waterfilter, is camera clipping walls?
+		
+	//如果相机进入水池，则相机前边的“片”显示
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Water" && waterFilter)
+		if (other.CompareTag ("Water") && waterFilter)
 			waterFilter.GetComponent<Renderer>().enabled = true;
 	}
 	
-	//toggle waterfilter, is camera clipping walls?
+	//如果相机离开水池，则相机前边的“片”不显示
 	void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag ("Water") && waterFilter)
@@ -83,7 +83,7 @@ public class CameraFollow : MonoBehaviour
 		}
 		else
 		{
-			//keyboard camera rotation look
+			//相机旋转的快捷键
 			float axis = Input.GetAxis ("CamHorizontal") * inputRotationSpeed * Time.deltaTime;
 			followTarget.RotateAround (target.position, Vector3.up, axis);
 		}

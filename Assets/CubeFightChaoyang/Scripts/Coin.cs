@@ -12,9 +12,9 @@ public class Coin : MonoBehaviour
 	
 	private bool collected;
 	private Transform player;
-	private TriggerParent triggerParent;	//this is a utility class, that lets us check if the player is close to the coins "bounds sphere trigger"
+	private TriggerParent triggerParent;					//this is a utility class, that lets us check if the player is close to the coins "bounds sphere trigger"
 	private GUIManager gui;
-	
+
 	//setup
 	void Awake()
 	{

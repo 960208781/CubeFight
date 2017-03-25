@@ -2,15 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-//class to handle buoyancy of objects whilst in a "Water" tagged object
+//水的浮力效果的实现
 [RequireComponent(typeof(BoxCollider))]
 public class Water : MonoBehaviour 
 {
-	public AudioClip splashSound;						//played when objects enter water
-	public Vector3 force = new Vector3(0, 16.5f, 0);	//pushForce of the water. This is a vector3 so you can have force in any direction, for example a current or river
-	public bool effectPlayerDrag;						//should the players rigidbody be effected by the drag/angular drag values of the water?
-	public float resistance = 0.4f;						//the drag applied to rigidbodies in the water (but not player)
-	public float angularResistance = 0.2f;				//the angular drag applied to rigidbodies in the water (but not player)
+	public AudioClip splashSound;						//当对象进入水的音效
+	public Vector3 force = new Vector3(0, 16.5f, 0);	//在水中所受的浮力
+	public bool effectPlayerDrag;						//主角的rigidbody是否影响水的浮力值
+	public float resistance = 0.4f;						//在水中实施拖拽效果(but not player)
+	public float angularResistance = 0.2f;				//在水中的旋转阻力but not player)
 	
 	private Dictionary<GameObject, float> dragStore = new Dictionary<GameObject, float>();
 	private Dictionary<GameObject, float> angularStore = new Dictionary<GameObject, float>();
@@ -20,12 +20,12 @@ public class Water : MonoBehaviour
 		if(tag != "Water")
 		{
 			tag = "Water";
-			Debug.LogWarning("'Water' script attached to an object not tagged 'Water', it been assigned the tag 'Water'", transform);
+			Debug.LogWarning("'Water' 请将 'Water'tag 'Water'重新赋值！", transform);
 		}
-		GetComponent<Collider>().isTrigger = true;
+		GetComponent<Collider>().isTrigger = true;		//将刚体设置为触发器
 	}
 	
-	//apply buoyancy
+	//浮力处理
 	void OnTriggerStay(Collider other)
 	{
 		//get surface position

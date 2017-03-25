@@ -32,7 +32,7 @@ namespace cn.sharesdk.unity3d
 
 		void Awake()
 		{				
-			print("ShareSDK Awake");
+			print("ShareSDK Awake的方法");
 			Type type = devInfo.GetType();
 			Hashtable platformConfigs = new Hashtable();
 			FieldInfo[] devInfoFields = type.GetFields();
